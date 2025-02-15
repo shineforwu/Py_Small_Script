@@ -2,7 +2,7 @@
 # @Author: Shine Wu
 # @Date:   2025-02-15 14:30:29
 # @Last Modified by:   Shine Wu
-# @Last Modified time: 2025-02-15 19:21:33
+# @Last Modified time: 2025-02-15 21:30:08
 # @Description:This is a class for logging info.
 
 import datetime
@@ -36,7 +36,7 @@ class My_Logger:
     def log(self, level:LogLevel, message):
         if level.value[0] >= self._log_level.value[0]:  
             timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-            level_name = self._log_level.value[1]
+            level_name = level.value[1]
             print(f"[{timestamp}] [{level_name}] [{self._module_name}]: [{message}"+"\n")
             if self._is_to_wirte == 1:
                 self.ensure_log_file_exists()

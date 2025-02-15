@@ -2,7 +2,7 @@
 # @Author: Shine Wu
 # @Date:   2025-02-15 14:26:25
 # @Last Modified by:   Shine Wu
-# @Last Modified time: 2025-02-15 19:36:22
+# @Last Modified time: 2025-02-15 21:09:40
 # @Description:This is the window  for my toolbox
 
 
@@ -17,6 +17,7 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 parent_dir = os.path.dirname(current_dir)
 sys.path.append(parent_dir)
 from My_Package.My_Logger import My_Logger
+from Port_Scanner.Port_Scanner_view import Port_Scanner_view
 
 class Main_View:
     def __init__(self,root:tk.Tk):
@@ -50,7 +51,12 @@ class Main_View:
         # 创建下部分框架
         self.bottom_frame = tk.Frame(self.root, bg='lightgreen', height=50)
         self.bottom_frame.pack(side='bottom', fill='x')
+        
+        #添加一个容器 Notebook
+        self.notebook = ttk.Notebook(self.top_frame)
+        self.notebook.pack(expand=True, fill='both')
 
+        tabView_1=Port_Scanner_view(self.notebook,self.logger)
 
     
 
