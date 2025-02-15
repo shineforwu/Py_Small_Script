@@ -1,0 +1,49 @@
+# -*- coding: utf-8 -*-
+# @Author: Shine Wu
+# @Date:   2025-02-15 14:26:25
+# @Last Modified by:   Shine Wu
+# @Last Modified time: 2025-02-15 17:17:19
+# @Description:This is the window  for my toolbox
+
+from My_Package.My_Logger import My_Logger
+import tkinter as tk
+from tkinter import ttk
+from socket import *
+import threading
+
+
+class Main_View:
+    def __init__(self,root:tk.Tk):
+        self.logger = My_Logger()
+        self.logger.set_log_base_name("MyTest")
+        self.logger.set_module_name("Main_View")
+        self.logger.info("MainView initialized")
+        self.root=root
+
+   
+
+    def __del__(self):
+        self.logger.info("MainView is being destroyed")
+
+
+    def showWin(self):
+        self.root.title("我的小工具箱")
+        # 创建上部分框架
+        self.top_frame = tk.Frame(self.root, bg='lightblue')
+        self.top_frame.pack(expand=True, fill='both')
+
+        # 创建下部分框架
+        self.bottom_frame = tk.Frame(self.root, bg='lightgreen', height=50)
+        self.bottom_frame.pack(side='bottom', fill='x')
+
+
+    
+
+    
+
+
+if __name__ == "__main__":
+    root = tk.Tk()
+    app =Main_View(tk.Tk())
+    app.showWin()
+    root.mainloop()
