@@ -15,6 +15,7 @@ class LogLevel(Enum):
     WARNING = (30, "WARNING")
     ERROR = (40, "ERROR")
     CRITICAL = (50, "CRITICAL")# critical level 是最严重的
+    MUST = (100, "MUST")
 
 
 
